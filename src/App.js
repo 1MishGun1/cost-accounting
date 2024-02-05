@@ -1,6 +1,6 @@
-import CostItem from "./components/CostItem";
+import Costs from "./components/Costs";
 
-function App() {
+const App = () => {
   const costs = [
     {
       date: new Date(2023, 2, 20),
@@ -18,27 +18,12 @@ function App() {
       costPrice: 1700,
     },
   ];
-
   return (
     <div>
       <h1>Cost accounting</h1>
-      <CostItem
-        date={costs[0].date}
-        description={costs[0].description}
-        costPrice={costs[0].costPrice}
-      />
-      <CostItem
-        date={costs[1].date}
-        description={costs[1].description}
-        costPrice={costs[1].costPrice}
-      />
-      <CostItem
-        date={costs[2].date}
-        description={costs[2].description}
-        costPrice={costs[2].costPrice}
-      />
+      <Costs costs={costs} />
     </div>
   );
-}
+};
 
 export default App;
