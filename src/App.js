@@ -1,3 +1,4 @@
+// import React from "react";
 import Costs from "./components/Costs";
 
 const App = () => {
@@ -18,6 +19,16 @@ const App = () => {
       costPrice: 1700,
     },
   ];
+
+  //? Old version React code
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h1", {}, "Cost accounting"),
+  //   React.createElement(Costs, { costs: costs })
+  // );
+
+  //? New version React code
   return (
     <div>
       <h1>Cost accounting</h1>
