@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const CostItem = (props) => {
   const [description, setDescription] = useState(props.description);
+  console.log("Text component");
 
   const showDiscriptionHandler = () => {
     // description = "Test text";
