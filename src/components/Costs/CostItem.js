@@ -7,7 +7,7 @@ const CostItem = (props) => {
   const [description, setDescription] = useState(props.description);
   console.log("Text component");
 
-  const showDiscriptionHandler = () => {
+  const showDescriptionHandler = () => {
     // description = "Test text";
     setDescription("Test text"); // description = 'Test text' && CostItem(props)
     console.log(description);
@@ -20,7 +20,7 @@ const CostItem = (props) => {
         <h2>{description}</h2>
         <div className="cost-item__price">${props.costPrice}</div>
       </div>
-      <button onClick={showDiscriptionHandler}>Edit direction</button>
+      <button onClick={showDescriptionHandler}>Edit direction</button>
     </Card>
   );
 };
