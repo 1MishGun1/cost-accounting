@@ -1,8 +1,21 @@
 import "./CostForm.css";
+import { useState } from "react";
 
 const CostForm = () => {
-  const nameChangeYandler = (e) => {
-    console.log(e.target.value);
+  const [name, setName] = useState("");
+  const [costPrice, setCostPrice] = useState("");
+  const [date, setDate] = useState("");
+
+  const nameChangeHandler = (e) => {
+    setName(e.target.value);
+  };
+
+  const amountChangeHandler = (e) => {
+    setName(e.target.value);
+  };
+
+  const dateChangeHandler = (e) => {
+    setName(e.target.value);
   };
 
   return (
@@ -10,15 +23,25 @@ const CostForm = () => {
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label>Name new cost</label>
-          <input type="text" onChange={nameChangeYandler} />
+          <input type="text" onChange={nameChangeHandler} />
         </div>
         <div className="new-cost__control">
           <label>Sum new cost</label>
-          <input type="number" min="0.1" step="0.1" />
+          <input
+            type="number"
+            onClick={amountChangeHandler}
+            min="0.1"
+            step="0.1"
+          />
         </div>
         <div className="new-cost__control">
-          <label>Data addendum</label>
-          <input type="date" min="2015-01-01" step="2024-12-31" />
+          <label>Date addendum</label>
+          <input
+            type="date"
+            onClick={dateChangeHandler}
+            min="2015-01-01"
+            step="2024-12-31"
+          />
         </div>
         <div className="new-cost__actions">
           <button type="submit">Add cost</button>
