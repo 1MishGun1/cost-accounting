@@ -2,20 +2,47 @@ import "./CostForm.css";
 import { useState } from "react";
 
 const CostForm = () => {
-  const [name, setName] = useState("");
-  const [costPrice, setCostPrice] = useState("");
-  const [date, setDate] = useState("");
+  //   const [name, setName] = useState("");
+  //   const [costPrice, setCostPrice] = useState("");
+  //   const [date, setDate] = useState("");
+
+  const [userInput, setUserInput] = useState({
+    name: "",
+    costPrice: "",
+    date: "",
+  });
+
+  //   const nameChangeHandler = (e) => {
+  //     setName(e.target.value);
+  //   };
+
+  //   const amountChangeHandler = (e) => {
+  //     setName(e.target.value);
+  //   };
+
+  //   const dateChangeHandler = (e) => {
+  //     setName(e.target.value);
+  //   };
 
   const nameChangeHandler = (e) => {
-    setName(e.target.value);
+    setUserInput({
+      ...userInput,
+      name: e.target.value,
+    });
   };
 
-  const amountChangeHandler = (e) => {
-    setName(e.target.value);
+  const costPriceChangeHandler = (e) => {
+    setUserInput({
+      ...userInput,
+      costPrice: e.target.value,
+    });
   };
 
   const dateChangeHandler = (e) => {
-    setName(e.target.value);
+    setUserInput({
+      ...userInput,
+      date: e.target.value,
+    });
   };
 
   return (
@@ -29,7 +56,7 @@ const CostForm = () => {
           <label>Sum new cost</label>
           <input
             type="number"
-            onClick={amountChangeHandler}
+            onClick={costPriceChangeHandler}
             min="0.1"
             step="0.1"
           />
