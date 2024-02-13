@@ -1,52 +1,72 @@
-import "./CostForm.css";
-import { useState } from "react";
+import './CostForm.css';
+import { useState } from 'react';
 
 const CostForm = () => {
-  //   const [name, setName] = useState("");
-  //   const [costPrice, setCostPrice] = useState("");
-  //   const [date, setDate] = useState("");
+  const [inputName, setInputName] = useState('');
+  const [inputcCostPrice, setInputCostPrice] = useState('');
+  const [inputDate, setInputDate] = useState('');
 
-  const [userInput, setUserInput] = useState({
-    name: "",
-    costPrice: "",
-    date: "",
-  });
-
-  //   const nameChangeHandler = (e) => {
-  //     setName(e.target.value);
-  //   };
-
-  //   const amountChangeHandler = (e) => {
-  //     setName(e.target.value);
-  //   };
-
-  //   const dateChangeHandler = (e) => {
-  //     setName(e.target.value);
-  //   };
+  // const [userInput, setUserInput] = useState({
+  //   name: '',
+  //   costPrice: '',
+  //   date: '',
+  // });
 
   const nameChangeHandler = (e) => {
-    setUserInput({
-      ...userInput,
-      name: e.target.value,
-    });
+    setInputName(e.target.value);
   };
 
   const costPriceChangeHandler = (e) => {
-    setUserInput({
-      ...userInput,
-      costPrice: e.target.value,
-    });
+    setInputCostPrice(e.target.value);
   };
 
   const dateChangeHandler = (e) => {
-    setUserInput({
-      ...userInput,
-      date: e.target.value,
-    });
+    setInputDate(e.target.value);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const costData = {
+      name: inputName,
+      costPrice: inputcCostPrice,
+      date: new Date(inputDate),
+    };
+
+    console.log(costData);
+  };
+
+  // const nameChangeHandler = (e) => {
+  //   setUserInput({
+  //     ...userInput,
+  //     name: e.target.value,
+  //   });
+  // };
+
+  //? Alternative syntax
+  // setUserInput((previousState) => {
+  //   return {
+  //     ...previousState,
+  //     name: e.target.value
+  //   };
+  // });
+
+  // const costPriceChangeHandler = (e) => {
+  //   setUserInput({
+  //     ...userInput,
+  //     costPrice: e.target.value,
+  //   });
+  // };
+
+  // const dateChangeHandler = (e) => {
+  //   setUserInput({
+  //     ...userInput,
+  //     date: e.target.value,
+  //   });
+  // };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label>Name new cost</label>
