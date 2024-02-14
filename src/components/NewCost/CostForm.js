@@ -1,10 +1,10 @@
-import './CostForm.css';
-import { useState } from 'react';
+import "./CostForm.css";
+import { useState } from "react";
 
 const CostForm = () => {
-  const [inputName, setInputName] = useState('');
-  const [inputcCostPrice, setInputCostPrice] = useState('');
-  const [inputDate, setInputDate] = useState('');
+  const [inputName, setInputName] = useState("");
+  const [inputCostPrice, setInputCostPrice] = useState("");
+  const [inputDate, setInputDate] = useState("");
 
   // const [userInput, setUserInput] = useState({
   //   name: '',
@@ -29,11 +29,14 @@ const CostForm = () => {
 
     const costData = {
       name: inputName,
-      costPrice: inputcCostPrice,
+      costPrice: inputCostPrice,
       date: new Date(inputDate),
     };
 
     console.log(costData);
+    setInputName("");
+    setInputCostPrice("");
+    setInputDate("");
   };
 
   // const nameChangeHandler = (e) => {
@@ -70,13 +73,14 @@ const CostForm = () => {
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label>Name new cost</label>
-          <input type="text" onChange={nameChangeHandler} />
+          <input type="text" value={inputName} onChange={nameChangeHandler} />
         </div>
         <div className="new-cost__control">
           <label>Sum new cost</label>
           <input
             type="number"
-            onClick={costPriceChangeHandler}
+            value={inputCostPrice}
+            onChange={costPriceChangeHandler}
             min="0.1"
             step="0.1"
           />
@@ -85,7 +89,8 @@ const CostForm = () => {
           <label>Date addendum</label>
           <input
             type="date"
-            onClick={dateChangeHandler}
+            value={inputDate}
+            onChange={dateChangeHandler}
             min="2015-01-01"
             step="2024-12-31"
           />
