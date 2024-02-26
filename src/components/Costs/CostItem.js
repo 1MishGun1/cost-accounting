@@ -7,7 +7,6 @@ const CostItem = (props) => {
   const [deleteCost, setDeleteCost] = useState(0);
 
   const delCost = () => {
-    // deleteCost = "delete cost";
     setDeleteCost("delete cost");
     console.log(deleteCost);
   };
