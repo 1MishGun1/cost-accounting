@@ -5,12 +5,30 @@ const CostForm = (props) => {
   const [inputName, setInputName] = useState("");
   const [inputCostPrice, setInputCostPrice] = useState("");
   const [inputDate, setInputDate] = useState("");
+  const [isAddCost, setAddCost] = useState(false);
 
   // const [userInput, setUserInput] = useState({
   //   name: '',
   //   costPrice: '',
   //   date: '',
   // });
+
+  // Add cost btn
+  const checkAddCost = () => {
+    setAddCost(!isAddCost);
+  };
+
+  if (!isAddCost) {
+    return (
+      <button type="submit" onClick={checkAddCost}>
+        Add new cost
+      </button>
+    );
+  }
+
+  const clickCancel = () => {
+    setAddCost(false);
+  };
 
   const nameChangeHandler = (e) => {
     setInputName(e.target.value);
@@ -37,6 +55,7 @@ const CostForm = (props) => {
     setInputName("");
     setInputCostPrice("");
     setInputDate("");
+    setAddCost(false);
   };
 
   // const nameChangeHandler = (e) => {
@@ -97,6 +116,9 @@ const CostForm = (props) => {
         </div>
         <div className="new-cost__actions">
           <button type="submit">Add cost</button>
+          <button type="submit" onClick={clickCancel}>
+            Cancel
+          </button>
         </div>
       </div>
     </form>
