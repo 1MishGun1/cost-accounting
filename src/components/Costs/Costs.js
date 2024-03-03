@@ -15,18 +15,24 @@ const Costs = (props) => {
     return cost.date.getFullYear().toString() === selectedYear;
   });
 
+  // Check for expenses
+  let costsContent = <h3 className="no-costs">No expenses this year</h3>;
+  if (filterCost.length > 0) {
+    costsContent = filterCost.map((cost) => (
+      <CostItem
+        key={cost.id}
+        date={cost.date}
+        description={cost.description}
+        costPrice={cost.costPrice}
+      />
+    ));
+  }
+
   return (
     <>
       <Card className="costs">
         <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
-        {filterCost.map((cost) => (
-          <CostItem
-            key={cost.id}
-            date={cost.date}
-            description={cost.description}
-            costPrice={cost.costPrice}
-          />
-        ))}
+        {costsContent}
       </Card>
     </>
   );
